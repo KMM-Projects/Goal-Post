@@ -22,6 +22,23 @@ import UIKit //UIKit includes foundation
         present(viewControllerToPressent, animated: false, completion: nil) //we need to type false bc if we type true we are sticking with the basic animation but we already overwrite it above
         
     }
+    
+    //func from create goal to home VC
+    func presentSecondaryDetail(_ viewControllerPresent: UIViewController){
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = kCATransitionPush
+        transition.subtype = kCATransitionFromRight
+        
+        guard let presentedViewController = presentedViewController else {return} //reference to the now presented viewController
+        presentedViewController.dismiss(animated: false) {
+            self.view.window?.layer.add(transition, forKey: kCATransition)
+            //present the viewController we passed in
+            self.present(viewControllerPresent, animated: false, completion: nil ) //here the completion doesnt matter
+        }
+      
+    }
+    
     // func to dismiss the controller from right to left
     func dismisDetail(){
         

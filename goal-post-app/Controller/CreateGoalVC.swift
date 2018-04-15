@@ -50,7 +50,8 @@ class CreateGoalVC: UIViewController, UITextViewDelegate { // UITextViewDelegate
             
             finishedGoalVC.initData(description: goalTextView.text!, type: goalType)
             //we sent the data fropm this VC to anotherVC
-            presentDetail(finishedGoalVC)
+            //presentDetail(finishedGoalVC) bs this VC stay in stack on the top
+            presentingViewController?.presentSecondaryDetail(finishedGoalVC) //this mean present finishVC and dismmis this VC so GoalVC stay on the top of the stack
         }
     }
     
