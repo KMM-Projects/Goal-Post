@@ -24,6 +24,10 @@ class GoalsVC: UIViewController {
 
 
     @IBAction func addBoalBtnWasPressed(_ sender: Any) {
+        // we wana use segue manual for transition to crateGoalVC
+        guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else {return}
+        //if no VC with this indentifier than just return
+        presentDetail(createGoalVC)
     }
 }
 // we can Comform the Table View up in main Class but this way we are holding everything in One pack just Table View.
